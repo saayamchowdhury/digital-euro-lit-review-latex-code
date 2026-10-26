@@ -1,0 +1,171 @@
+% !TEX program = xelatex
+% Build: xelatex main -> biber main -> xelatex main -> xelatex main
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+% Encoding, fonts, language bla bla bla
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+% Page layout
+\usepackage[
+    margin=2.2cm,
+    top=2.5cm,
+    bottom=2.5cm,
+    columnsep=0.8cm
+]{geometry}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.4em}
+\linespread{1.05}
+
+% Styling Stuff
+\usepackage[dvipsnames]{xcolor}
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{softgray}{HTML}{6B6B6B}
+
+\usepackage{titlesec}
+\titleformat{\section}
+    {\large\bfseries\color{accent}\scshape}
+    {\thesection}{0.6em}{}
+\titleformat{\subsection}
+    {\normalsize\bfseries\color{accent}}
+    {\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.0ex plus 0.5ex minus 0.2ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.8ex}
+
+% Header and Footer = Fancy Head lmao
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{softgray}\textit{Literature Review}}
+\fancyhead[R]{\small\color{softgray}\textit{Understanding the Digital Euro}}
+\newcommand{\studentname}{Saayam Chowdhury}
+\newcommand{\studentnumber}{8074364}
+\fancyfoot[L]{\small\color{softgray}\studentname\ \textbar\ Student number: \studentnumber}
+\fancyfoot[R]{\small\color{softgray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{accent}\leaders\hrule height \footrulewidth\hfill}}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{accent}\leaders\hrule height \headrulewidth\hfill}}
+
+% Title section and Abstract from abstract-body.tex
+\usepackage{authblk}
+\usepackage{abstract}
+\renewcommand{\abstractnamefont}{\normalfont\bfseries\color{accent}}
+\renewcommand{\abstracttextfont}{\normalfont\small}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \twocolumn[%
+    \begin{@twocolumnfalse}
+      \vspace*{-0.5cm}
+      {\color{accent}\rule{\textwidth}{1.2pt}}\par\vspace{0.6cm}
+      \begin{center}
+        {\Large\bfseries\color{accent} \@title \par}
+        \vspace{0.6cm}
+        {\large \@author \par}
+        \vspace{0.3cm}
+        {\small\color{softgray} \@date \par}
+      \end{center}
+      \vspace{0.2cm}
+      {\color{accent}\rule{\textwidth}{0.4pt}}\par\vspace{0.4cm}
+      \begin{abstract}
+        \input{abstract-body}
+      \end{abstract}
+      \vspace{0.2cm}
+      \noindent\textbf{\color{accent}Keywords:} \@keywords\par
+      \vspace{0.2cm}
+      {\color{accent}\rule{\textwidth}{0.4pt}}\par\vspace{0.6cm}
+    \end{@twocolumnfalse}
+  ]%
+}
+\newcommand{\keywords}[1]{\gdef\@keywords{#1}}
+\makeatother
+
+% Link Formatting Blueing
+\usepackage{xurl}
+\usepackage[
+    colorlinks=true,
+    linkcolor=accent,
+    citecolor=black,
+    urlcolor=accent
+]{hyperref}
+
+% Bib = Chicago Author-Date style (I hate Chicago)
+\usepackage[authordate,backend=biber]{biblatex-chicago}
+\addbibresource{references.bib}
+
+% Metadata (what else to add?)
+\title{Understanding the Digital Euro: A Literature Review of Adoption, Usage, and Monetary Sovereignty}
+\author{Saayam Chowdhury}
+\date{\today}
+\keywords{Digital euro, Central bank digital currency, Adoption, Monetary sovereignty}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+With people increasingly preferring to pay digitally, the digital euro is the Eurosystem's response to what that shift could do to public money. \textcite{Cipollone2026a} warns that, without a digital equivalent of cash, the role of public money may decline rapidly, especially with Europe not yet having a pan-European digital payment solution. Scholarly work on the matter of the digital euro is diverse over bibliometrics, political economy, and consumer behaviour: each of these streams aims to answer a different question.
+
+This review emphasises four sources which link the different fields of motivation, design, adoption, and institutional consequences of the digital euro. \textcite{Quaglia2025} offer a geoeconomic argument based on elite interviews to explain why the European Central Bank (ECB) decided on the retail central bank digital currency (CBDC) in the first place. \textcite{Cotugno2024} map the academic literature on digital currencies, identifying risks and opportunities. \textcite{Seiler2026} estimates who would use a digital euro and which design features raise that probability. \textcite{Cipollone2026a} gives the ECB's own current position on design, safeguards and timeline.
+
+Ultimately, a sovereignty objective can only be realised if design choices secure the actual usage; the usage then depends on the response from the public, which institutional design cannot simply assume. My review first defines the scope of the digital euro along with its policy context and then breaks the themes down to compare and identify the limitations.
+
+\section{Definition and Policy Context}
+
+A retail central bank digital currency (CBDC) is a digital form of central bank money accessible to individuals and firms, serving as a digital equivalent of cash. Unlike privately issued cryptocurrencies, a CBDC represents money issued by a central bank. The proposed digital euro is intended to complement physical cash by providing an additional means of making digital payments across the euro area \parencite{Cipollone2026a}.
+
+The digital euro, however, would be a digital form of central bank money working online and also offline across the Eurozone for all kinds of transactions, directly complementing cash \parencite{Cipollone2026a}. The CBDC project has been underway since 2023, and with the proposed legislation from the European Commission and the European Parliament, the ECB aims to be ready for a potential first issuance in 2029.
+
+\textcite{Cotugno2024} analyse 290 Scopus documents published between 2005 and 2022. Their findings indicate that academic interest in the subject has grown rapidly, with an annual growth rate of 23.67\%. \textcite{Seiler2026} adds that digital money could challenge the role of public money as the anchor of the monetary system.
+
+\section{Objectives of the Digital Euro}
+
+\subsection{Adoption and Usage}
+
+\textcite{Seiler2026} provides the most direct evidence on demand. His logistic regressions show that the key inference is that consumer attitudes are a stronger determinant of potential digital euro adoption, although some demographic and socioeconomic characteristics also matter. Cash accounted for 59.4\% of point-of-sale transactions in the euro area in 2022, but the share by country differs significantly, with some, such as the Netherlands, as low as 20.07\%, while Malta is 77.0\% \parencite[Table~3]{Seiler2026}.
+
+The wider literature offers limited insight into how these findings fit together. \textcite{Cotugno2024} note that the literature by most impactful authors is theoretical with very little empirical work. Nevertheless, evidence on adoption and usage, digital safety, and public trust in new payment instruments remains limited.
+
+In essence, the ECB's design choices can be read as adoption problems. Increasing adoption and usage will require cooperation, technical standards, and further behavioural research. Additionally, offline availability, which \textcite{Cipollone2026a} lists as a design feature, is found to increase adoption by \textcite{Seiler2026}.
+
+\subsection{Monetary Sovereignty}
+
+\textcite{Quaglia2025} interpret the ECB's retail CBDC through geoeconomics. They argue that Libra, China's digital yuan and COVID-19 quickened its development. This rationale, however, weakened as stablecoin projects stalled, limiting adoption. The authors highlight Europe's dependence on non-EU payment providers as a potential source of geopolitical vulnerability because more than two-thirds of all European card transactions rely on non-EU providers \parencite{Quaglia2025}.
+
+\textcite{Cipollone2026a} adds to this argument by spotlighting the dependence on foreign payment infrastructure and linking monetary sovereignty to the two-tier system. Wholesale initiatives Pontes and Appia complement the digital euro, suggesting that the ECB's ambitions extend to broader questions of financial infrastructure and European strategic autonomy.
+
+On the other hand, \textcite{Cotugno2024} argue that the CBDC's competition with private stablecoins serves as a motivation for the ECB for its development. Furthermore, the ECB plans to mitigate risk with non-remuneration and holding limits, and their projections suggest minimal banking-sector disruption.
+
+\vspace{2cm}
+\section{Critical Evaluation}
+
+\subsection{Comparative Analysis}
+
+The studies concur on design issues. Bank disintermediation is a common concern along with declining cash use. Privacy issues are also brought up in the study by \textcite{Quaglia2025} report that a significant part of German opinion has concerns with privacy when it comes to the digital euro and is reluctant to abandon cash. The pattern is consistent with the political account in Seiler's study, although the table does not test it \parencite{Seiler2026}.
+
+The studies also diverge in important ways: \textcite{Cotugno2024} describe the long-term aim of CBDCs as fully replacing cash, whereas \textcite{Cipollone2026a} presents the digital euro as complementing cash, and \textcite{Quaglia2025} add that the Commission aims at the continuity of cash as well. \textcite{Cotugno2024} give stablecoin a motivational and competitive role for development for the ECB, while \textcite{Quaglia2025} say that this rationale is no longer important and payment autonomy took over.
+
+\subsection{Limitations and Gaps}
+
+Three clear gaps follow from setting the sources side by side: firstly, the sources don't connect consumer usage estimates to the geoeconomic goal. The level of adoption required for the digital euro to meaningfully reduce Europe's dependence on non-EU payment providers remains unclear. From the ECB speech, we know that the planned pilot intends to let the ecosystem run and identify areas of improvement \parencite{Cipollone2026a}. Future pilot data could help policymakers assess adoption patterns and evaluate whether design choices, including holding limits, adequately balance usability and financial stability. Of course, the studies also don't discuss the fate of cash and whether having it is a burden or a benefit: this is where further theory is necessary. Finally, wholesale strategies and tokenisation methods are underrepresented in the studies, and the effect of these developments is still unclear.
+
+\section{Conclusion}
+
+The central insight we find from the synthesis is the layers discussed by each study constrain one another. Sovereignty goals need usage; usage depends on attitudes and features along with safeguards. Future research must establish a link between adoption and the ECB's objective and test the ECB's financial stability independently.
+
+% References
+\printbibliography[title={References}]
+
+% Word count
+\vspace{1em}
+\noindent{\footnotesize\color{softgray}\textit{Word count: 1188}}
+
+\end{document}
